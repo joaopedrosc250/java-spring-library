@@ -42,7 +42,8 @@ public class OrderTableSQL implements OrderTableDAO {
                 sell.next();
 
                 int orderid = sell.getInt(1);
-                PreparedStatement statement = this.connection.prepareStatement("insert into orderitens (fkorid, fkboid, qtde) values (?, ?, ?)");
+                String st2 = "insert into orderitens (fkorid, fkboid, qtde) values (?, ?, ?)";
+                PreparedStatement statement = this.connection.prepareStatement(st2);
 
                 for (OrderItem i : order.getItemPedido()) {
                     Book book = i.getLivro();
